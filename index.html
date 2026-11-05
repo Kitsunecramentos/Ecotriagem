@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="#176b56" name="theme-color"/>
+  <title>
+   Ecotriagem Digital | Painel de acolhimento
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header class="top">
+   <div class="topin">
+    <div class="logo">
+     ✚
+    </div>
+    <div class="brand">
+     Ecotriagem Digital
+     <small>
+      Plataforma de acolhimento em sáude
+     </small>
+    </div>
+    <div class="topright">
+     <span>
+      <i class="dot">
+      </i>
+      <span class="statuscopy">
+       
+      </span>
+     </span>
+     <span>
+      ◈ Dados neste dispositivo
+     </span>
+    </div>
+   </div>
+  </header>
+  <div class="layout">
+   <aside class="sidebar no-print">
+    <div class="side-label">
+     MENU PRINCIPAL
+    </div>
+    <button class="nav active" data-page="dashboard">
+     <span class="ico">
+      
+     </span>
+     Visão geral
+    </button>
+    <button class="nav" data-page="new">
+     <span class="ico">
+      ＋
+     </span>
+     Nova triagem
+    </button>
+    <button class="nav" data-page="records">
+     <span class="ico">
+      ▤
+     </span>
+     Atendimentos
+    </button>
+    <div class="side-note">
+     <strong>
+      Dados Armazenados Localmente
+     </strong>
+     
+    </div>
+   </aside>
+   <main class="content">
+    <section class="page active" id="dashboard">
+     <div class="heading">
+      <div>
+       <div class="eyebrow">
+        Painel de acompanhamento
+       </div>
+       <h1 class="page-title">
+        Visão geral
+       </h1>
+       <p class="sub">
+        Acompanhe os formularios registrados 
+       </p>
+      </div>
+      <button class="btn primary" onclick="showPage('new')">
+       ＋ Nova triagem
+      </button>
+     </div>
+     <div class="stats">
+      <div class="stat">
+       <div class="stat-top">
+        Total de registros
+        <span class="stat-icon">
+         ▤
+        </span>
+       </div>
+       <div class="stat-num" id="statTotal">
+        0
+       </div>
+       <div class="stat-foot">
+        Neste navegador
+       </div>
+      </div>
+      <div class="stat">
+       <div class="stat-top">
+        Aguardando revisão
+        <span class="stat-icon">
+         ◷
+        </span>
+       </div>
+       <div class="stat-num" id="statReview">
+        0
+       </div>
+       <div class="stat-foot">
+        Necessitam Avaliação
+       </div>
+      </div>
+      <div class="stat">
+       <div class="stat-top">
+        Sinal de atenção
+        <span class="stat-icon">
+         ⚑
+        </span>
+       </div>
+       <div class="stat-num" id="statAttention">
+        0
+       </div>
+       <div class="stat-foot">
+        Sinalizados para avaliação imediata
+       </div>
+      </div>
+      <div class="stat">
+       <div class="stat-top">
+        Sem sintomas marcados
+        <span class="stat-icon">
+         ♡
+        </span>
+       </div>
+       <div class="stat-num" id="statNoSymptoms">
+        0
+       </div>
+       <div class="stat-foot">
+        Conforme informado no formulario
+       </div>
+      </div>
+     </div>
+     <div class="panel">
+      <div class="panel-head">
+       <div>
+        <h2>
+         Atendimentos recentes
+        </h2>
+        <p>
+         Registros mais recentes, com prioridade de atenção e revisão.
+        </p>
+       </div>
+       <button class="btn secondary" onclick="showPage('records')">
+        Ver todos 
+       </button>
+      </div>
+      <div id="recentTable">
+      </div>
+     </div>
+     <div class="notice">
+      <strong>
+       ONGs de reflorestamento
+      </strong>
+      <p>ddadsadsad</p>
+      <p>adasdsasadsads</p>
+     </div>
+    </section>
+    <section class="page" id="new">
+     <div class="heading">
+      <div>
+       <div class="eyebrow">
+        Cadastro de atendimento
+       </div>
+       <h1 class="page-title">
+        Nova triagem
+       </h1>
+       <p class="sub">
+        Registre os dados relatados pelo paciente ou preenchidos por um profissional.
+       </p>
+      </div>
+     </div>
+     <form id="triageForm">
+      <div class="panel">
+       <div class="panel-head">
+        <div>
+         <h2>
+          01 Dados pessoais
+         </h2>
+         <p>
+          Informaçoes para identificação e contato.
+         </p>
+        </div>
+       </div>
+       <div class="form-grid">
+        <div class="field full">
+         <label for="nome">
+          Nome completo *
+         </label>
+         <input autocomplete="name" id="nome" name="nome" placeholder="Nome e sobrenome" required=""/>
+        </div>
+        <div class="field">
+         <label for="nascimento">
+          Data de nascimento
+         </label>
+         <input id="nascimento" name="nascimento" type="date"/>
+        </div>
+        <div class="field">
+         <label for="telefone">
+          Telefone *
+         </label>
+         <input id="telefone" name="telefone" placeholder="(00) 00000-0000" required="" type="tel"/>
+        </div>
+        <div class="field full">
+         <label for="email">
+          E-mail
+         </label>
+         <input id="email" name="email" placeholder="nome@exemplo.com" type="email"/>
+        </div>
+        <div class="field">
+         <label for="preenchidoPor">
+          Formulario preenchido por
+         </label>
+         <select id="preenchidoPor" name="preenchidoPor">
+          <option>
+           Paciente
+          </option>
+          <option>
+           Profissional de sáude
+          </option>
+          <option>
+           Responsável / acompanhante
+          </option>
+         </select>
+        </div>
+        <div class="field">
+         <label for="unidade">
+          Unidade / setor (opcional)
+         </label>
+         <input id="unidade" name="unidade" placeholder="Ex.: recepção, clinica..."/>
+        </div>
+       </div>
+      </div>
+      <div class="panel">
+       <div class="panel-head">
+        <div>
+         <h2>
+          02 Sintomas relatados
+         </h2>
+         <p>
+          Marque todos os sintomas que a pessoa informa estar sentindo.
+         </p>
+        </div>
+       </div>
+       <div class="checks">
+        <label class="check">
+         <input name="sintomas" type="checkbox" value="Febre / temperatura alta"/>
+         Febre / temperatura alta
+        </label>
+        <label class="check">
+         <input name="sintomas" type="checkbox" value="Dores no corpo"/>
+         Dores no corpo
+        </label>
+        <label class="check">
+         <input name="sintomas" type="checkbox" value="Tontura"/>
+         Tontura
+        </label>
+        <label class="check">
+         <input name="sintomas" type="checkbox" value="Dor de cabeça"/>
+         Dor de cabeça
+        </label>
+        <label class="check">
+         <input name="sintomas" type="checkbox" value="Tosse"/>
+         Tosse
+        </label>
+        <label class="check">
+         <input name="sintomas" type="checkbox" value="Falta de ar"/>
+         Falta de ar
+        </label>
+        <label class="check">
+         <input name="sintomas" type="checkbox" value="Dor no peito"/>
+         Dor no peito
+        </label>
+        <label class="check">
+         <input name="sintomas" type="checkbox" value="Desmaio ou perda de consciencia"/>
+         Desmaio / perda de consciencia
+        </label>
+        <label class="check">
+         <input name="sintomas" type="checkbox" value="Nausea ou vomito"/>
+         Nausea ou vomito
+        </label>
+        <label class="check">
+         <input name="sintomas" type="checkbox" value="Fraqueza ou cansaço;o"/>
+         Fraqueza ou cansaço
+        </label>
+        <label class="check">
+         <input name="sintomas" type="checkbox" value="Outro sintoma"/>
+         Outro sintoma
+        </label>
+        <label class="check">
+         <input id="nenhum" name="sintomas" type="checkbox" value="Nenhum sintoma"/>
+         Nenhum sintoma
+        </label>
+       </div>
+       <div class="form-grid" style="margin-top:18px">
+        <div class="field">
+         <label for="duracao">
+          Há quanto tempo?
+         </label>
+         <select id="duracao" name="duracao">
+          <option value="">
+           Selecione
+          </option>
+          <option>
+           Começou hoje
+          </option>
+          <option>
+           Há; 2 dias;3 dias
+          </option>
+          <option>
+           Há 4 dias;7 dias
+          </option>
+          <option>
+           Há mais de uma semana
+          </option>
+          <option>
+           Não sabe informar
+          </option>
+         </select>
+        </div>
+        <div class="field">
+         <label for="intensidade">
+          Intensidade relatada
+         </label>
+         <select id="intensidade" name="intensidade">
+          <option value="">
+           Selecione
+          </option>
+          <option>
+           Leve
+          </option>
+          <option>
+           Moderada
+          </option>
+          <option>
+           Intensa
+          </option>
+          <option>
+           Não sabe informar
+          </option>
+         </select>
+        </div>
+        <div class="field full">
+         <label for="detalhes">
+          Descrição / observações
+         </label>
+         <textarea id="detalhes" name="detalhes" placeholder="Quando começou? Há algo mais que o profissional deva saber?"></textarea>
+        </div>
+       </div>
+      </div>
+      <div class="panel">
+       <div class="panel-head">
+        <div>
+         <h2>
+          03 Contato de emergência
+         </h2>
+         <p>
+          Preencha se houver uma pessoa indicada para contato.
+         </p>
+        </div>
+       </div>
+       <div class="form-grid">
+        <div class="field">
+         <label for="emergNome">
+          Nome do contato
+         </label>
+         <input id="emergNome" name="emergNome" placeholder="Nome completo"/>
+        </div>
+        <div class="field">
+         <label for="emergTelefone">
+          Telefone do contato
+         </label>
+         <input id="emergTelefone" name="emergTelefone" placeholder="(00) 00000-0000" type="tel"/>
+        </div>
+        <div class="field">
+         <label for="parentesco">
+          Grau de parentesco / relação
+         </label>
+         <select id="parentesco" name="parentesco">
+          <option value="">
+           Selecione
+          </option>
+          <option>
+           M&atilde;e / pai
+          </option>
+          <option>
+           Filho(a)
+          </option>
+          <option>
+           C&ocirc;njuge / companheiro(a)
+          </option>
+          <option>
+           Irm&atilde;o / irm&atilde;
+          </option>
+          <option>
+           Outro familiar
+          </option>
+          <option>
+           Amigo(a)
+          </option>
+          <option>
+           Outro
+          </option>
+         </select>
+        </div>
+       </div>
+      </div>
+      <div class="notice rednotice">
+       <strong>
+        ⚠ Atenção a sinais de emergência
+       </strong>
+       Falta de ar, dor no peito ou desmaio podem exigir atendimento imediato. Se estiver acontecendo agora, procure ajuda de emerg&ecirc;ncia ou ligue 192 (SAMU). N&atilde;o dependa deste site para decidir se deve buscar atendimento.
+      </div>
+      <div class="form-actions">
+       <button class="btn secondary" type="reset">
+        Limpar campos
+       </button>
+       <button class="btn primary" type="submit">
+        Revisar e salvar triagem 
+       </button>
+      </div>
+     </form>
+    </section>
+    <section class="page" id="records">
+     <div class="heading">
+      <div>
+       <div class="eyebrow">
+        Registros locais
+       </div>
+       <h1 class="page-title">
+        Atendimentos
+       </h1>
+       <p class="sub">
+        Consulte, revise e exporte fichas registradas neste dispositivo.
+       </p>
+      </div>
+      <button class="btn primary" onclick="showPage('new')">
+       ＋ Nova triagem
+      </button>
+     </div>
+     <div class="panel">
+      <div class="toolbar">
+       <input aria-label="Buscar registros" id="searchRecords" placeholder="Buscar por nome ou telefone"/>
+       <select aria-label="Filtrar por prioridade" id="filterStatus">
+        <option value="">
+         Todas as prioridades
+        </option>
+        <option value="attention">
+         Sinal de atendimento
+        </option>
+        <option value="review">
+         Revisão necessária
+        </option>
+        <option value="routine">
+         Sem sinalizador
+        </option>
+       </select>
+      </div>
+      <div id="allTable">
+      </div>
+     </div>
+     <div class="form-actions">
+      <button class="btn secondary" onclick="exportJSON()">
+       Exportar backup (.json)
+      </button>
+      <button class="btn secondary" onclick="document.getElementById('importFile').click()">
+       Importar backup (.json)
+      </button>
+      <input accept="application/json,.json" hidden="" id="importFile" type="file"/>
+     </div>
+     <p class="privacy">
+      
+     </p>
+    </section>
+    <section class="page" id="printSheet">
+     <div class="print-sheet" id="printContent">
+     </div>
+    </section>
+    <div class="footer no-print">
+     Ecotriagem Digital  Prototipo demonstrativo  
+    </div>
+   </main>
+  </div>
+  <div aria-labelledby="modalTitle" aria-modal="true" class="modalback" id="modalback" role="dialog">
+   <div class="modal">
+    <div class="eyebrow">
+     Ficha de atendimento
+    </div>
+    <h2 id="modalTitle">
+     Detalhes do registro
+    </h2>
+    <div id="modalContent">
+    </div>
+    <div class="modalactions no-print">
+     <button class="btn secondary" onclick="closeModal()">
+      Fechar
+     </button>
+     <button class="btn secondary" id="printBtn">
+      Exportar / imprimir PDF
+     </button>
+     <button class="btn primary" id="reviewBtn">
+      Marcar como revisado
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="toast" id="toast" role="status">
+  </div>
+  <script defer="" src="script.js">
+  </script>
+ </body>
+</html>
